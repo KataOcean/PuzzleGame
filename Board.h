@@ -13,7 +13,7 @@ class Board {
 private:
 	Stage *stage;
 	Player *player;
-	vector<Baggage*> baggages;
+	vector<Baggage> baggages;
 public:
 	Board();
 	~Board();
@@ -27,8 +27,8 @@ public:
 
 	Baggage *FindBaggage(int _x, int _y) {
 		for (auto &baggage : baggages) {
-			if (_x == baggage->GetX() && _y == baggage->GetY()) {
-				return baggage;
+			if (_x == baggage.GetX() && _y == baggage.GetY()) {
+				return &baggage;
 			}
 		}
 		return NULL;

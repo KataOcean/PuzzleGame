@@ -4,13 +4,14 @@
 
 class Baggage {
 private:
-	Position *position;
+	Position position;
 public:
-	Baggage(int _x , int _y);
+	Baggage(int _x, int _y);
+	Baggage(const Position position);
 	~Baggage();
 
 	void Move(int _x, int _y);
 
-	int GetX() { return this->position->GetX(); }
-	int GetY() { return this->position->GetY(); }
+	int GetX() { return this->position.GetX(); }
+	int GetY() { return this->position.GetY(); }
 };

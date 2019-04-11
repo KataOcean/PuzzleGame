@@ -4,13 +4,14 @@
 
 class Player {
 private:
-	Position *position;
+	Position position;
 public:
-	Player(int _x ,int _y);
+	Player(int _x, int _y);
+	Player(const Position position);
 	~Player();
 
 	void Move( int _x , int _y );
 
-	int GetX() { return this->position->GetX(); }
-	int GetY() { return this->position->GetY(); }
+	int GetX() { return this->position.GetX(); }
+	int GetY() { return this->position.GetY(); }
 };

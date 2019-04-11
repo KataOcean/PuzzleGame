@@ -2,6 +2,8 @@
 #include <iostream>
 using namespace std;
 
+#include "FileReader.h"
+
 GameManager::GameManager() {
 	this->input = new Input();
 	this->board = new Board();

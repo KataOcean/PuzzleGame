@@ -117,22 +117,30 @@
   <ItemGroup>
     <ClCompile Include="Baggage.cpp" />
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="FileReader.cpp" />
     <ClCompile Include="GameManager.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Stage.cpp" />
+    <ClCompile Include="StageData.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Baggage.h" />
     <ClInclude Include="Board.h" />
+    <ClInclude Include="CellType.h" />
     <ClInclude Include="Direction.h" />
+    <ClInclude Include="FileReader.h" />
     <ClInclude Include="GameManager.h" />
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="Stage.h" />
+    <ClInclude Include="StageData.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Data\StageData.dat" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

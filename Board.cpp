@@ -4,18 +4,17 @@
 using namespace std;
 
 Board::Board() {
-	this->stage = new Stage(8,5);
-	this->player = new Player(3,3);
-	this->baggages.push_back(new Baggage(2, 2));
-	this->baggages.push_back(new Baggage(3, 2));
+	this->stage = new Stage("Data/StageData.dat");
+
+	this->player = new Player(this->stage->GetPlayerPosition());
+
+	for (auto pos : this->stage->GetBaggagePositions()) {
+		this->baggages.push_back(Baggage(pos));
+	}
 }
 
 Board::~Board() {
 	delete this->stage;
-
-	for (auto &baggage : this->baggages) {
-		delete baggage;
-	}
 }
 
 void Board::Update(Input input) {
@@ -73,7 +72,7 @@ bool Board::GetNextPosition(Position *position, Direction direction, bool isBagg
 
 bool Board::CheckClear() {
 	for (auto &baggage : baggages) {
-		if (this->stage->GetFloor(baggage->GetX(), baggage->GetY()) != GOAL) {
+		if (this->stage->GetFloor(baggage.GetX(), baggage.GetY()) != GOAL) {
 			return false;
 		}
 	}

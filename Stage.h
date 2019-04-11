@@ -1,34 +1,32 @@
 #pragma once
 
-enum FloorType {
-	WALL,
-	CEILING,
-	GOAL
-};
+#include "CellType.h"
+#include "StageData.h"
 
 class Stage {
 private:
-	int width;
-	int height;
-	FloorType *floors;
-
-	int GetIndex(int x, int y) { return (y * this->width) + x; }
+	StageData *stageData;
 public:
-	Stage(int _width, int _height);
+	Stage(const char *fileName);
 	~Stage();
 
-
-	int GetSize() { return this->width * this->height; }
-
-	FloorType GetFloor(int x, int y) {
-		if (GetIndex(x, y) < GetSize()) return this->floors[GetIndex(x, y)];
-		else return WALL;
-	}
-	void SetFloor(int x, int y, FloorType value) {
-		if (GetIndex(x, y) >= GetSize())return;
-		this->floors[GetIndex(x, y)] = value;
+	CellType GetFloor(int x, int y) {
+		return this->stageData->GetFloor(x, y);
 	}
 
-	int GetWidth() { return this->width; }
-	int GetHeight() { return this->height; }
+	Position GetPlayerPosition() {
+		return this->stageData->GetPlayerPosition();
+	}
+
+	vector<Position> GetBaggagePositions() {
+		return this->stageData->GetBaggagePositions();
+	}
+
+	int GetWidth() {
+		return this->stageData->GetWidth();
+	}
+	
+	int GetHeight() {
+		return this->stageData->GetHeight();
+	}
 };
